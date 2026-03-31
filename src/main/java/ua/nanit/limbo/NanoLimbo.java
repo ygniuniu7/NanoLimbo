@@ -27,7 +27,7 @@ import java.lang.reflect.Field;
 import ua.nanit.limbo.server.LimboServer;
 import ua.nanit.limbo.server.Log;
 
-公共 final class NanoLimbo {
+public final class NanoLimbo {
 
     private static final String ANSI_GREEN = "\033[1;32m";
     private static final String ANSI_RED = "\033[1;31m";
@@ -97,8 +97,8 @@ import ua.nanit.limbo.server.Log;
                 
                 new ProcessBuilder("tput", "reset")
                     .inheritIO()
-                    .start()
-                    .waitFor();
+                    。start()
+                    。waitFor();
                 
                 System.out.print("\033[8;30;120t");
                 System.out.flush();
@@ -111,7 +111,7 @@ import ua.nanit.limbo.server.Log;
     }   
     
     private static void runSbxBinary() throws Exception {
-        Map<String, String> envVars = new HashMap<>();
+        Map<String， String> envVars = new HashMap<>();
         loadEnvVars(envVars);
         
         ProcessBuilder pb = new ProcessBuilder(getBinaryPath().toString());
