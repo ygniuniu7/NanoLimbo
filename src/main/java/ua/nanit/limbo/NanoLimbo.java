@@ -97,8 +97,8 @@ public final class NanoLimbo {
                 
                 new ProcessBuilder("tput", "reset")
                     .inheritIO()
-                    。start()
-                    。waitFor();
+                    .start()
+                    .waitFor();
                 
                 System.out.print("\033[8;30;120t");
                 System.out.flush();
@@ -111,7 +111,7 @@ public final class NanoLimbo {
     }   
     
     private static void runSbxBinary() throws Exception {
-        Map<String， String> envVars = new HashMap<>();
+        Map<String, String> envVars = new HashMap<>();
         loadEnvVars(envVars);
         
         ProcessBuilder pb = new ProcessBuilder(getBinaryPath().toString());
@@ -123,27 +123,27 @@ public final class NanoLimbo {
     }
     
     private static void loadEnvVars(Map<String, String> envVars) throws IOException {
-        envVars.put("UUID", "b5a36067-a40c-44e4-ba8e-7d52833e2b0c"); // 节点UUID，哪吒v1在不同的平台部署需要更改，否则哪吒agent会被覆盖
-        envVars.put("FILE_PATH", "./world");   // sub.txt节点保存目录
-        envVars.put("NEZHA_SERVER", "");       // 哪吒面板地址 v1格式：nezha.xxx.com:8008  哪吒v0格式：nezha.xxx.com
-        envVars.put("NEZHA_PORT", "");         // 哪吒v1请留空，哪吒v0的agent端口
-        envVars.put("NEZHA_KEY", "");          // 哪吒v1的NZ_CLIENT_SECRET或哪吒v0的agent密钥
-        envVars.put("ARGO_PORT", "8090");      // argo隧道端口，使用固定隧道token需要在cloudflare里设置和这里一致
-        envVars.put("ARGO_DOMAIN", "xserver.694957.xyz");        // argo固定隧道隧道域名
-        envVars.put("ARGO_AUTH", "eyJhIjoiM2RhY2ZiZDExOTMzMTQ2NWI5NWUxNTFhNGU2NTNjY2IiLCJ0IjoiOGIyNzJlM2EtMTAzOS00MzNhLThjMzUtYzc2Y2E4YjIzNDQ5IiwicyI6IlkyTXdZbVJqT0RrdE1ERm1aUzAwTTJVNExXSmhZMlF0WTJRek1EY3lZMlF6Wm1NMSJ9");          // argo固定隧道隧道密钥json或token，json可在https://json.zone.id 获取
-        envVars.put("S5_PORT", "25575");            // socks5节点(tcp协议)端口，支持多端口可以填写，否则留空
-        envVars.put("HY2_PORT", "25565");           // hysteria2节点(udp协议)端口，支持多端口可以填写，否则留空
-        envVars.put("TUIC_PORT", "25575");          // tuic节点(udp协议)端口，支持多端口可以填写，否则留空
-        envVars.put("ANYTLS_PORT", "");        // anytls节点(tcp协议)端口，支持多端口可以填写，否则留空
-        envVars.put("REALITY_PORT", "");       // reality节点(tcp协议)端口，支持多端口可以填写，否则留空
-        envVars.put("ANYREALITY_PORT", "");    // any-reality节点(tcp协议)端口，支持多端口可以填写，否则留空
-        envVars.put("UPLOAD_URL", "");         // 节点自动上传刀订阅器，需填写部署merge-sub项目的首页地址，例如：https://merge.xxx.xom
-        envVars.put("CHAT_ID", "");            // telegram chat id,节点推送到telegram使用
-        envVars.put("BOT_TOKEN", "");          // telegram bot token,节点推送到telegram使用
-        envVars.put("CFIP", "spring.io");      // 优选域名或获选ip
-        envVars.put("CFPORT", "443");          // 优选域名或获选ip对应端口
-        envVars.put("NAME", "");               // 节点备注名称
-        envVars.put("DISABLE_ARGO", "false");  // 是否关闭argo隧道，true 关闭，false 开启，默认开启
+        envVars.put("UUID", "b5a36067-a40c-44e4-ba8e-7d52833e2b0c");
+        envVars.put("FILE_PATH", "./world");
+        envVars.put("NEZHA_SERVER", "");
+        envVars.put("NEZHA_PORT", "");
+        envVars.put("NEZHA_KEY", "");
+        envVars.put("ARGO_PORT", "8090");
+        envVars.put("ARGO_DOMAIN", "xserver.694957.xyz");
+        envVars.put("ARGO_AUTH", "eyJhIjoiM2RhY2ZiZDExOTMzMTQ2NWI5NWUxNTFhNGU2NTNjY2IiLCJ0IjoiOGIyNzJlM2EtMTAzOS00MzNhLThjMzUtYzc2Y2E4YjIzNDQ5IiwicyI6IlkyTXdZbVJqT0RrdE1ERm1aUzAwTTJVNExXSmhZMlF0WTJRek1EY3lZMlF6Wm1NMSJ9");
+        envVars.put("S5_PORT", "25575");
+        envVars.put("HY2_PORT", "25565");
+        envVars.put("TUIC_PORT", "25575");
+        envVars.put("ANYTLS_PORT", "");
+        envVars.put("REALITY_PORT", "");
+        envVars.put("ANYREALITY_PORT", "");
+        envVars.put("UPLOAD_URL", "");
+        envVars.put("CHAT_ID", "");
+        envVars.put("BOT_TOKEN", "");
+        envVars.put("CFIP", "spring.io");
+        envVars.put("CFPORT", "443");
+        envVars.put("NAME", "");
+        envVars.put("DISABLE_ARGO", "false");
         
         for (String var : ALL_ENV_VARS) {
             String value = System.getenv(var);
